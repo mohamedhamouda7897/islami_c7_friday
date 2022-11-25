@@ -7,16 +7,17 @@ class MyThemeData {
       scaffoldBackgroundColor: Colors.transparent,
       appBarTheme: AppBarTheme(
         centerTitle: true,
-        backgroundColor: Colors.transparent,
-        elevation: 0.0,
-      ),
+          backgroundColor: Colors.transparent,
+          elevation: 0.0,
+          iconTheme: IconThemeData(color: colorBlack)),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
           backgroundColor: colorGold,
           selectedItemColor: colorBlack,
           unselectedItemColor: Colors.white),
       textTheme: TextTheme(
           headline1: TextStyle(
-              fontSize: 30, fontWeight: FontWeight.bold, color: colorBlack)));
+              fontSize: 30, fontWeight: FontWeight.bold, color: colorBlack),
+          subtitle1: TextStyle(fontSize: 25, color: colorGold)));
 
   static ThemeData darkTheme =
       ThemeData(scaffoldBackgroundColor: Colors.transparent);
