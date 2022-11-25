@@ -32,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           bottomNavigationBar: BottomNavigationBar(
-            type: BottomNavigationBarType.shifting,
+            type: BottomNavigationBarType.fixed,
             currentIndex: currentIndex,
             onTap: (index) {
               currentIndex = index;
@@ -60,7 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   BottomNavigationBarItem bottomItem(String ImageName, String label) =>
       BottomNavigationBarItem(
-          icon: ImageIcon(AssetImage('assets/images/$ImageName.png'), size: 30),
-          label: '$label',
-          backgroundColor: MyThemeData.colorGold);
+        icon: ImageIcon(AssetImage('assets/images/$ImageName.png'), size: 30),
+        label: '$label',
+      );
 }
