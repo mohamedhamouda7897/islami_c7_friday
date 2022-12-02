@@ -4,6 +4,9 @@ import 'package:islami_c7_friday/home/quran/quran_screen.dart';
 import 'package:islami_c7_friday/home/radio/radio_screen.dart';
 import 'package:islami_c7_friday/home/sebha/sebha_screen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islami_c7_friday/providers/my_provider.dart';
+import 'package:islami_c7_friday/settings/settings.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = 'home';
@@ -17,10 +20,11 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<MyProvider>(context);
     return Stack(
       children: [
         Image.asset(
-          'assets/images/main_bg.png',
+          provider.getBackground(),
           width: double.infinity,
           fit: BoxFit.fill,
         ),
@@ -43,6 +47,10 @@ class _HomeScreenState extends State<HomeScreen> {
               bottomItem('sebha', 'Sebha'),
               bottomItem('radio', 'Radio'),
               bottomItem('hadeth', 'Ahadeth'),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.settings),
+                label: 'Settings',
+              )
             ],
           ),
           body: tabs[currentIndex],
@@ -55,7 +63,8 @@ class _HomeScreenState extends State<HomeScreen> {
     QuranScreen(),
     SebhaScreen(),
     RadioScreen(),
-    AhadethScreen()
+    AhadethScreen(),
+    SettingsScreen()
   ];
 
   BottomNavigationBarItem bottomItem(String ImageName, String label) =>
